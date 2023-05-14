@@ -1,7 +1,5 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.grafica;
 
-import javax.naming.OperationNotSupportedException;
-
 import org.iesalandalus.programacion.alquilervehiculos.vista.Vista;
 
 public class VistaGrafica extends Vista {

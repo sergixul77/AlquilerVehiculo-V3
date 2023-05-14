@@ -5,11 +5,11 @@ import java.util.Objects;
 
 public class Cliente {
 
-	private static final String ER_NOMBRE = "[A-Z][a-zñ]+( [A-Z][a-zñ]+)*";
+	public  static final String ER_NOMBRE = "[A-Z][a-zñ]+( [A-Z][a-zñ]+)*";
 
-	private static final String ER_DNI = "\\d{8}[A-HJ-NP-TV-Z]";
+	public static final String ER_DNI = "\\d{8}[A-HJ-NP-TV-Z]";
 
-	private static final String ER_TELEFONO = "[6-9]\\d{8}";
+	public static final String ER_TELEFONO = "[6-9]\\d{8}";
 
 	private String nombre;
 	private String dni;

@@ -56,7 +56,9 @@ public abstract class Modelo {
 	}
 
 	public void terminar() {
-		System.out.println("El modelo ha terminado.");
+		vehiculos.terminar();
+		clientes.terminar();
+		alquileres.terminar();
 	}
 
 	public abstract void insertar(Cliente cliente) throws OperationNotSupportedException;

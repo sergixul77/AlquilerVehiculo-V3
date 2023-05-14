@@ -1,7 +1,5 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista;
 
-import javax.naming.OperationNotSupportedException;
-
 import org.iesalandalus.programacion.alquilervehiculos.controlador.Controlador;
 
 public abstract class Vista {

@@ -1,0 +1,25 @@
+
+.boton_aceptar {
+    -fx-font-size: 13px;
+    -fx-background-radius: 5px;
+    -fx-min-height: 23px;
+    -fx-transition: all 1s ease;
+}
+
+.boton_aceptar:hover {
+    -fx-background-color: #018412;
+    -fx-text-fill: white;
+}
+
+
+.boton_cancelar {
+	-fx-font-size: 13px;
+	-fx-min-height: 23px;
+    -fx-background-radius: 5px;
+    -fx-transition: all 0.3s ease;
+}
+
+.boton_cancelar:hover {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}

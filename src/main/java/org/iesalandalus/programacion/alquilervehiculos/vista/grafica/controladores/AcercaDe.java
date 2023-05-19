@@ -15,7 +15,7 @@ public class AcercaDe extends Controlador {
 	 @FXML
 	    void github(ActionEvent event) {
 		 
-		 String url = "https://github.com/sergixul77/AlquilerVehiculo-v3.git"; // Reemplaza con la URL que deseas abrir
+		 String url = "https://github.com/sergixul77/AlquilerVehiculo-v3.git"; 
 		    
 		    if (Desktop.isDesktopSupported()) {
 		        Desktop desktop = Desktop.getDesktop();

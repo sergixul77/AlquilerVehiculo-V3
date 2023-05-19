@@ -12,16 +12,16 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.Principal">
    <children>
-      <MenuBar>
+      <MenuBar styleClass="boton_menu" stylesheets="@../estilos/javafx.css">
         <menus>
-          <Menu fx:id="boton_ayuda" mnemonicParsing="false" text="Ayuda">
+          <Menu fx:id="boton_ayuda" mnemonicParsing="false" styleClass="boton_ayuda" text="Ayuda">
             <items>
-              <MenuItem fx:id="boton_cerrar" mnemonicParsing="false" text="Cerrar" />
+              <MenuItem mnemonicParsing="false" onAction="#acerca_de" styleClass="acerca_de" text="acerca de..." />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu fx:id="boton_salir" mnemonicParsing="false" styleClass="boton_salir" text="Salir">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#salir" styleClass="salir" text="salir" />
             </items>
           </Menu>
         </menus>
@@ -36,7 +36,7 @@
       </ImageView>
       <HBox alignment="CENTER" prefHeight="123.0" prefWidth="426.0">
          <children>
-            <Button fx:id="acceder" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#acceder" text="Acceder" textAlignment="CENTER">
+            <Button fx:id="acceder" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#acceder" styleClass="boton_ventana_principal" stylesheets="@../estilos/javafx.css" text="Acceder" textAlignment="CENTER">
                <HBox.margin>
                   <Insets />
                </HBox.margin></Button>

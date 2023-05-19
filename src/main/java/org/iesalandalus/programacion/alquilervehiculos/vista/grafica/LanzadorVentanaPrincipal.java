@@ -1,11 +1,13 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.grafica;
 
 
+import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.recursos.LocalizadorRecursos;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controlador;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controladores;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Dialogos;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -22,9 +24,13 @@ import javafx.stage.WindowEvent;
 //				escenarioPrincipal.setTitle("Vista Gráfica de Alquiler de Vehículos");
 //				escenarioPrincipal.setScene(escena);
 //				escenarioPrincipal.show();
-				Controlador Ventanaprincipal = Controladores.get("vistas/Principal.fxml", Titulo, null);
-				Ventanaprincipal.getEscenario().setOnCloseRequest(e -> confirmarSalida(Ventanaprincipal.getEscenario(), e));
-				Ventanaprincipal.getEscenario().show();
+				// añadir imagen de icono del proyecto en la imagen del logo. 
+				
+		        
+				Controlador ventanaPrincipal = Controladores.get("vistas/Principal.fxml", Titulo, null);
+				ventanaPrincipal.getEscenario().getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo_blanco.png")));
+				ventanaPrincipal.getEscenario().setOnCloseRequest(e -> confirmarSalida(ventanaPrincipal.getEscenario(), e));
+				ventanaPrincipal.getEscenario().show();
 			} catch (Exception e) {
 				
 				

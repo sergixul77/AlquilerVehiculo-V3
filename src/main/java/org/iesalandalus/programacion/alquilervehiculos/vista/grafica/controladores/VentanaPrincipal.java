@@ -14,26 +14,7 @@ import javafx.fxml.FXML;
 
 public class VentanaPrincipal extends Controlador {
 
-	@FXML
-	void leerCliente(ActionEvent event) {
-
-		LeerCliente leerCliente = (LeerCliente) Controladores.get("vistas/LeerCliente.fxml", "Leer Cliente",
-				getEscenario()); /* Leo la vista */
-		leerCliente.limpiar();
-		leerCliente.getEscenario().showAndWait();
-		/* System.out.println(leerCliente.getCliente()); */
-		try {
-			Cliente cliente = leerCliente.getCliente(); /* Leo el cliente, puede lanzar excepcion */
-			if (cliente != null) { /* Si es diferente de null lo inserta */
-				VistaGrafica.getInstancia().getControlador().insertar(cliente);
-				Dialogos.mostrarDialogoAdvertencia("Insertar Cliente", "Cliente insertado de forma correcta",
-						getEscenario());
-			}
-		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
-			Dialogos.mostrarDialogoError("Insertar Cliente", e.getMessage(), getEscenario());
-		}
-
-	}
+	
 
 	@FXML
 	void listarClientes(ActionEvent event) {
@@ -44,10 +25,25 @@ public class VentanaPrincipal extends Controlador {
 		listarClientes.actualizar(VistaGrafica.getInstancia().getControlador().getClientes());
 		listarClientes.getEscenario().showAndWait();
 	}
+	
+	
+	  @FXML
+	    void listarVehiculos(ActionEvent event) {
+		  
+		  ListarVehiculos listarVehiculos = (ListarVehiculos) Controladores.get("vistas/ListarVehiculos.fxml", "Listar Vehiculos", getEscenario());
+		  
+		  listarVehiculos.getEscenario().showAndWait();
+	    }
 
 	@FXML
 	void salir(ActionEvent event) {
 		getEscenario().close();
 	}
+	
+	@FXML
+    void acerca_de(ActionEvent event) {
+		AcercaDe acercade = (AcercaDe) Controladores.get("vistas/Acercade.fxml", "Acerca de...", getEscenario());
+		acercade.getEscenario().showAndWait();
+    }
 
 }

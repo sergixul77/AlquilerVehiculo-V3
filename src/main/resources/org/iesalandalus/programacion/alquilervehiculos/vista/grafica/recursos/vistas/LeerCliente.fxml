@@ -36,8 +36,8 @@
       </GridPane>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-            <Button mnemonicParsing="false" onAction="#aceptar" text="Aceptar" />
+            <Button mnemonicParsing="false" onAction="#cancelar" styleClass="boton_cancelar" stylesheets="@../estilos/javafx.css" text="Cancelar" />
+            <Button mnemonicParsing="false" onAction="#aceptar" styleClass="boton_aceptar" stylesheets="@../estilos/javafx.css" text="Aceptar" />
          </children>
       </HBox>
    </children>

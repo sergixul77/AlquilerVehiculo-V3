@@ -1,6 +1,6 @@
 
 .boton_aceptar {
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-background-radius: 5px;
     -fx-min-height: 23px;
     -fx-transition: all 1s ease;
@@ -13,7 +13,7 @@
 
 
 .boton_cancelar {
-	-fx-font-size: 13px;
+	-fx-font-size: 15px;
 	-fx-min-height: 23px;
     -fx-background-radius: 5px;
     -fx-transition: all 0.3s ease;
@@ -23,3 +23,68 @@
     -fx-background-color: red;
     -fx-text-fill: white;
 }
+
+
+/*------------------------ Boton de la ventana princpal (boton de acceder) ------------------*/
+
+.boton_ventana_principal{
+    -fx-font-size: 15px;
+    -fx-background-radius: 5px;
+    -fx-min-height: 23px;
+    -fx-transition: all 1s ease;
+    -fx-background-color: #000000;
+    -fx-text-fill: #fceb00;
+    -fx-transition: background-color 0.3s;
+
+}
+
+.boton_ventana_principal:hover {
+    -fx-background-color: #fceb00;
+    -fx-text-fill: #000000;
+}
+
+/*-----------------------FIN DE BOTON PRINCIPAL---------------------*/
+
+
+/*----------------------- Botones de la pantalla principal (clientes, vehiculos y alquiler)*/
+
+.boton_cliente{
+    -fx-background-color:  transparent;
+}
+
+.boton_cliente:hover{ /*Para que salga la manita cuando pulsar encima de la foto (en realidad detras esta el boton)*/
+    -fx-cursor: hand;
+    
+
+}
+
+
+
+
+/*.label_cliente:hover{
+    -fx-text-fill: #ff0000;
+    -fx-cursor: hand;
+}*/
+
+.boton_vehiculo{
+    -fx-background-color:  transparent;
+}
+
+.boton_vehiculo:hover{
+    -fx-cursor: hand;
+}
+
+/*--------------------------FIN de Botones de la pantalla principal (clientes, vehiculos y alquiler)------------------------------*/
+
+
+/*Boton para ir a github*/
+
+.boton_github{
+    -fx-background-color:  transparent;
+    height: 10px;
+   
+}
+
+.boton_
+
+

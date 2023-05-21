@@ -9,6 +9,7 @@ import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.VistaGrafica;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controlador;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controladores;
+import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controles;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Dialogos;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -17,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -27,6 +29,24 @@ public class ListarVehiculos extends Controlador {
 	private static final String FURGONETA = "Furgoneta";
 
 	private static final String TURISMO = "Turismo";
+
+	@FXML
+	private TextField tfCilindrada;
+
+	@FXML
+	private TextField tfMarca;
+
+	@FXML
+	private TextField tfMatricula;
+
+	@FXML
+	private TextField tfModelo;
+
+	@FXML
+	private TextField tfPlazas;
+
+	@FXML
+	private TextField tfPma;
 
 	@FXML
 	private TableColumn<Vehiculo, String> tcCilindrada;
@@ -90,6 +110,10 @@ public class ListarVehiculos extends Controlador {
 		tcCilindrada.setCellValueFactory(fila -> new SimpleStringProperty(formatearCilindrada(fila.getValue())));
 		tcPlazas.setCellValueFactory(fila -> new SimpleStringProperty(formatearPlazas(fila.getValue())));
 		tcPma.setCellValueFactory(fila -> new SimpleStringProperty(formatearPma(fila.getValue())));
+		Controles.deshabilitarCamposTexto(tfCilindrada, tfMarca, tfMatricula, tfModelo, tfPlazas, tfPma); // para que no
+																											// se pueda
+																											// escribir
+																											// en ellos
 
 	}
 
@@ -139,13 +163,50 @@ public class ListarVehiculos extends Controlador {
 		}
 
 	}
-	
-	
+
 	@FXML
-    void buscar_vehiculo(ActionEvent event) {
-		BuscarVehiculo buscarVehiculo = (BuscarVehiculo) Controladores.get("vistas/BuscarVehiculo.fxml", "Buscar Vehiculo", getEscenario());
+	void buscar_vehiculo(ActionEvent event) {
+		BuscarVehiculo buscarVehiculo = (BuscarVehiculo) Controladores.get("vistas/BuscarVehiculo.fxml",
+				"Buscar Vehiculo", getEscenario());
 		buscarVehiculo.limpiar();
 		buscarVehiculo.getEscenario().showAndWait();
-    }
+
+		try {
+			String matricula = buscarVehiculo.getMatricula();
+			if (!matricula.isBlank()) {
+				Vehiculo vehiculo = VistaGrafica.getInstancia().getControlador()
+						.buscar(Vehiculo.getVehiculoConMatricula(matricula));
+				tfMarca.setText(vehiculo.getMarca());
+				tfModelo.setText(vehiculo.getModelo());
+				tfMatricula.setText(vehiculo.getMatricula());
+				// Formatero y establezco la cilindrada del vehiculo
+				String cilindradaFormateada = formatearCilindrada(vehiculo);
+				tfCilindrada.setText(cilindradaFormateada);
+				// Formatero y establezco las plazas del vehiculo
+				String plazasFormateadas = formatearPlazas(vehiculo);
+				tfPlazas.setText(plazasFormateadas);
+				// Formateo y establezco el pma del vehiculo
+				String pmaFormateado = formatearPma(vehiculo);
+				tfPma.setText(pmaFormateado);
+			}
+		} catch (Exception e) {
+			Dialogos.mostrarDialogoError("Error", e.getMessage(), getEscenario());
+		}
+	}
+
+	@FXML
+	void devolver_vehiculo(ActionEvent event) {
+
+		DevolverAlquilerVehiculo devolverAlquiler = (DevolverAlquilerVehiculo) Controladores
+				.get("vistas/DevolverAlquilerVehiculo.fxml", "Devolver Alquiler Vehiculo", getEscenario());
+		devolverAlquiler.getEscenario().showAndWait();
+		
+		try {
+			
+		} catch (Exception e) {
+			Dialogos.mostrarDialogoError("Error", e.getMessage(), getEscenario());
+		}
+
+	}
 
 }

@@ -36,7 +36,7 @@ public class Alquiler {
 		}
 
 		cliente = new Cliente(alquiler.getCliente());
-		vehiculo = Vehiculo.copiar(vehiculo);
+		vehiculo = Vehiculo.copiar(alquiler.getVehiculo());
 		fechaAlquiler = alquiler.getFechaAlquiler();
 		fechaDevolucion = alquiler.getFechaDevolucion();
 

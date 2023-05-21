@@ -82,13 +82,13 @@ public class ListarVehiculos extends Controlador {
 	private Color x4;
 
 	@FXML
-	private String formatearCilindrada(Vehiculo vehiculo) {
+	private String formateoCilindrada(Vehiculo vehiculo) {
 		return vehiculo instanceof Turismo turismo ? String.format("%s", turismo.getCilindrada()) : "";
 
 	}
 
 	@FXML
-	private String formatearPlazas(Vehiculo vehiculo) {
+	private String formateoPlazas(Vehiculo vehiculo) {
 		String plazas = "";
 		if (vehiculo instanceof Autobus autobus) {
 			plazas = String.format("%s", autobus.getPlazas());
@@ -107,8 +107,8 @@ public class ListarVehiculos extends Controlador {
 		tcMarca.setCellValueFactory(fila -> new SimpleStringProperty(fila.getValue().getMarca()));
 		tcModelo.setCellValueFactory(fila -> new SimpleStringProperty(fila.getValue().getModelo()));
 		tcMatricula.setCellValueFactory(fila -> new SimpleStringProperty(fila.getValue().getMatricula()));
-		tcCilindrada.setCellValueFactory(fila -> new SimpleStringProperty(formatearCilindrada(fila.getValue())));
-		tcPlazas.setCellValueFactory(fila -> new SimpleStringProperty(formatearPlazas(fila.getValue())));
+		tcCilindrada.setCellValueFactory(fila -> new SimpleStringProperty(formateoCilindrada(fila.getValue())));
+		tcPlazas.setCellValueFactory(fila -> new SimpleStringProperty(formateoPlazas(fila.getValue())));
 		tcPma.setCellValueFactory(fila -> new SimpleStringProperty(formatearPma(fila.getValue())));
 		Controles.deshabilitarCamposTexto(tfCilindrada, tfMarca, tfMatricula, tfModelo, tfPlazas, tfPma); // para que no
 																											// se pueda
@@ -140,6 +140,18 @@ public class ListarVehiculos extends Controlador {
 				"Insertar Vehiculo", getEscenario());
 		insertarVehiculo.limpiar();
 		insertarVehiculo.getEscenario().showAndWait();
+		try {
+			Vehiculo vehiculo = insertarVehiculo.getVehiculo();
+			if (vehiculo != null) {
+				VistaGrafica.getInstancia().getControlador().insertar(vehiculo);
+				Dialogos.mostrarDialogoAdvertencia("Insertar Vehiculo", "Vehiculo insertado correctamente",
+						getEscenario());
+				tvVehiculo.getItems().add(vehiculo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			Dialogos.mostrarDialogoError("Insertar Vehiculo", e.getMessage(), getEscenario());
+		}
 	}
 
 	@FXML
@@ -159,7 +171,7 @@ public class ListarVehiculos extends Controlador {
 			}
 
 		} catch (Exception e) {
-			Dialogos.mostrarDialogoAdvertencia("Borrar Vehiculo ", e.getMessage(), getEscenario());
+			Dialogos.mostrarDialogoError("Borrar Vehiculo ", e.getMessage(), getEscenario());
 		}
 
 	}
@@ -180,10 +192,10 @@ public class ListarVehiculos extends Controlador {
 				tfModelo.setText(vehiculo.getModelo());
 				tfMatricula.setText(vehiculo.getMatricula());
 				// Formatero y establezco la cilindrada del vehiculo
-				String cilindradaFormateada = formatearCilindrada(vehiculo);
+				String cilindradaFormateada = formateoCilindrada(vehiculo);
 				tfCilindrada.setText(cilindradaFormateada);
 				// Formatero y establezco las plazas del vehiculo
-				String plazasFormateadas = formatearPlazas(vehiculo);
+				String plazasFormateadas = formateoPlazas(vehiculo);
 				tfPlazas.setText(plazasFormateadas);
 				// Formateo y establezco el pma del vehiculo
 				String pmaFormateado = formatearPma(vehiculo);
@@ -200,9 +212,9 @@ public class ListarVehiculos extends Controlador {
 		DevolverAlquilerVehiculo devolverAlquiler = (DevolverAlquilerVehiculo) Controladores
 				.get("vistas/DevolverAlquilerVehiculo.fxml", "Devolver Alquiler Vehiculo", getEscenario());
 		devolverAlquiler.getEscenario().showAndWait();
-		
+
 		try {
-			
+
 		} catch (Exception e) {
 			Dialogos.mostrarDialogoError("Error", e.getMessage(), getEscenario());
 		}

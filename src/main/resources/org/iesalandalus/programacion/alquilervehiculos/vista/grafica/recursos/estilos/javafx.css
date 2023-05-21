@@ -74,6 +74,16 @@
     -fx-cursor: hand;
 }
 
+
+
+.boton_alquiler{
+    -fx-background-color:  transparent;
+}
+
+.boton_alquiler:hover{
+    -fx-cursor: hand;
+}
+
 /*--------------------------FIN de Botones de la pantalla principal (clientes, vehiculos y alquiler)------------------------------*/
 
 
@@ -81,6 +91,7 @@
 
 .boton_github{
     -fx-background-color:  transparent;
+    
    
 }
 

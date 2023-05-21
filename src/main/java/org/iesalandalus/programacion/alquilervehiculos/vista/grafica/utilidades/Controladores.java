@@ -9,6 +9,7 @@ import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.recursos.Lo
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -36,6 +37,7 @@ public class Controladores {
 			escenario.setTitle(titulo);
 			escenario.setScene(new Scene(raiz));
 			controladores.put(vistaFxml, controlador);
+			escenario.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/logo_blanco.png")));
 		} catch (IOException e) {
 			System.out.println("Error al cargar: " + vistaFxml);
 		}

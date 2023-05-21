@@ -1,7 +1,5 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores;
 
-import java.beans.Visibility;
-
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.VistaGrafica;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controlador;

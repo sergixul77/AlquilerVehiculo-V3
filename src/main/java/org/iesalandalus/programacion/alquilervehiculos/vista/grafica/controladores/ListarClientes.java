@@ -113,10 +113,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class ListarClientes extends Controlador {
-	
-	 @FXML
-	    private Menu boton_ayuda;
 
+	@FXML
+	private Menu boton_ayuda;
 
 	@FXML
 	private Button btBoton;
@@ -144,16 +143,15 @@ public class ListarClientes extends Controlador {
 
 	@FXML
 	private Color x4;
-	
-	   @FXML
-	    private TextField tfDni;
 
-	    @FXML
-	    private TextField tfNombre;
+	@FXML
+	private TextField tfDni;
 
-	    @FXML
-	    private TextField tfTelefono;
+	@FXML
+	private TextField tfNombre;
 
+	@FXML
+	private TextField tfTelefono;
 
 	@FXML
 	void aceptar(ActionEvent event) {
@@ -164,8 +162,8 @@ public class ListarClientes extends Controlador {
 
 	@FXML
 	void modificar(ActionEvent event) {
-		
-		//tvClientes.getItems().add(cliente que inserto.)
+
+		// tvClientes.getItems().add(cliente que inserto.)
 
 		ModificarCliente modificarCliente = (ModificarCliente) Controladores.get("vistas/ModificarCliente.fxml",
 				"ModificarCliente", getEscenario());
@@ -190,7 +188,7 @@ public class ListarClientes extends Controlador {
 				getEscenario());
 		buscarCliente.limpiar();
 		buscarCliente.getEscenario().showAndWait();
-		
+
 		try {
 			String dni = buscarCliente.getDni();
 			if (!dni.isBlank()) {
@@ -198,23 +196,23 @@ public class ListarClientes extends Controlador {
 				tfDni.setText(cliente.getDni());
 				tfNombre.setText(cliente.getNombre());
 				tfTelefono.setText(cliente.getTelefono());
-				
+
 			}
 		} catch (Exception e) {
 			Dialogos.mostrarDialogoError("Error", e.getMessage(), getEscenario());
 		}
-		
-		
+
 	}
+
 	@FXML
 	void devolverAlquilerCliente(ActionEvent event) {
 		DevolverAlquilerCliente devolverAlquilerCliente = (DevolverAlquilerCliente) Controladores
 				.get("vistas/DevolverAlquilerCliente.fxml", "Devolver Alquiler Cliente", getEscenario());
 		devolverAlquilerCliente.getEscenario().showAndWait();
 		try {
-			
+
 		} catch (IllegalArgumentException | NullPointerException e) {
-			
+
 //			VistaGrafica.getInstancia().getControlador().devolver(null, null);
 		}
 	}
@@ -237,12 +235,12 @@ public class ListarClientes extends Controlador {
 			}
 
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
-			Dialogos.mostrarDialogoAdvertencia("Borrar Cliente ", e.getMessage(), getEscenario());
+			Dialogos.mostrarDialogoError("Borrar Cliente ", e.getMessage(), getEscenario());
 		}
 
 	}
 
-	@FXML /*Metodo que inserta el cliente*/
+	@FXML /* Metodo que inserta el cliente */
 	void leerCliente(ActionEvent event) {
 
 		LeerCliente leerCliente = (LeerCliente) Controladores.get("vistas/LeerCliente.fxml", "Leer Cliente",
@@ -264,8 +262,6 @@ public class ListarClientes extends Controlador {
 
 	}
 
-	
-
 	@FXML
 	public void actualizar(List<Cliente> cliente) {
 		tvClientes.setItems(FXCollections.observableArrayList(cliente));
@@ -278,28 +274,24 @@ public class ListarClientes extends Controlador {
 		tcDni.setCellValueFactory(fila -> new SimpleStringProperty(fila.getValue().getDni()));
 
 		tcTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-		
-		Controles.deshabilitarCamposTexto(tfDni,tfNombre,tfTelefono); // para que no se pueda escribir en ellos
-		
-		
+
+		Controles.deshabilitarCamposTexto(tfDni, tfNombre, tfTelefono); // para que no se pueda escribir en ellos
 
 	}
-	
-	 void salir() {
-	    	getEscenario().close();
-	    }
-	 
-	 
-	 
-	 @FXML
-	    void acerca_de(ActionEvent event) {
-			AcercaDe acercade = (AcercaDe) Controladores.get("vistas/Acercade.fxml", "Acerca de...", getEscenario());
-			acercade.getEscenario().showAndWait();
-	    }
-	    
-	    @FXML
-	    void salir(ActionEvent event) {
-	    	getEscenario().close();
-	    }
+
+	void salir() {
+		getEscenario().close();
+	}
+
+	@FXML
+	void acerca_de(ActionEvent event) {
+		AcercaDe acercade = (AcercaDe) Controladores.get("vistas/Acercade.fxml", "Acerca de...", getEscenario());
+		acercade.getEscenario().showAndWait();
+	}
+
+	@FXML
+	void salir(ActionEvent event) {
+		getEscenario().close();
+	}
 
 }

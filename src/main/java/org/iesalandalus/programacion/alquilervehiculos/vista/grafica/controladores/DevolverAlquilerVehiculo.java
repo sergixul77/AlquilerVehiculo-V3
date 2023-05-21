@@ -9,9 +9,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class DevolverAlquilerCliente extends Controlador {
+public class DevolverAlquilerVehiculo extends Controlador {
 
-	private boolean cancelar;
+	private boolean cancelado;
 
 	@FXML
 	private Button boton_aceptar;
@@ -20,15 +20,15 @@ public class DevolverAlquilerCliente extends Controlador {
 	private VBox boton_cancelar;
 
 	@FXML
-	private TextField tfDni;
+	private DatePicker inputFecha;
 
 	@FXML
-	private DatePicker inputFecha;
+	private TextField tfMatricula;
 
 	@FXML
 	void aceptar(ActionEvent event) {
 
-		cancelar = false;
+		cancelado = false;
 		getEscenario().close();
 
 	}
@@ -36,27 +36,22 @@ public class DevolverAlquilerCliente extends Controlador {
 	@FXML
 	void cancelar(ActionEvent event) {
 
-		cancelar = true;
+		cancelado = true;
 		getEscenario().close();
 	}
 
-	private void comprobarDni() {
-		String dni = tfDni.getText();
-		if (dni.matches("\\d{8}[A-HJ-NP-TV-Z]")) {
-			tfDni.setStyle("-fx-border-color: green; -fx-transition: all 0.3s ease;");
+	private void compribarMatricula() {
+		String nombre = tfMatricula.getText();
+		if (nombre.matches("\\d{4}[B-DF-HJ-NP-TV-Z]{3}")) {
+			tfMatricula.setStyle("-fx-border-color: green");
 		} else {
-			tfDni.setStyle("-fx-border-color: red; -fx-transition: all 0.3s ease;");
+			tfMatricula.setStyle("-fx-border-color: red");
 		}
-
 	}
 
 	@FXML
 	void initialize() {
-		tfDni.textProperty().addListener((ob, ov, nv) -> comprobarDni());
-
-	}
-
-	void limpiar() {
+		tfMatricula.textProperty().addListener((ob, ov, nv) -> compribarMatricula()); /* esto no lo utilizo */
 
 	}
 

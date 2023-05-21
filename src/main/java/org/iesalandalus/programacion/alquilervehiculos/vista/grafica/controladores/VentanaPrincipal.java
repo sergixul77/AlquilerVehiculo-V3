@@ -31,7 +31,7 @@ public class VentanaPrincipal extends Controlador {
 	    void listarVehiculos(ActionEvent event) {
 		  
 		  ListarVehiculos listarVehiculos = (ListarVehiculos) Controladores.get("vistas/ListarVehiculos.fxml", "Listar Vehiculos", getEscenario());
-		  
+		  listarVehiculos.actualizar(VistaGrafica.getInstancia().getControlador().getVehiculos());
 		  listarVehiculos.getEscenario().showAndWait();
 	    }
 

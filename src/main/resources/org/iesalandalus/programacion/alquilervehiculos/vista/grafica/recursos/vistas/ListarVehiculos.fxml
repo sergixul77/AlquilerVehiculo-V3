@@ -33,6 +33,7 @@
 -->
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -64,7 +65,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane dividerPositions="0.2109955423476969, 0.7503714710252601" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.1708766716196137, 0.6913075780089154" focusTraversable="true" prefHeight="553.0" prefWidth="917.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane>
           <children>
@@ -76,6 +77,9 @@
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
+                  <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#insertar_vehiculo" text="Insertar Vehiculo" />
+                  <Button layoutX="24.0" layoutY="100.0" mnemonicParsing="false" onAction="#borrar_vehiculo" text="Borrar Vehiculo " />
+                  <Button layoutX="25.0" layoutY="136.0" mnemonicParsing="false" onAction="#buscar_vehiculo" text="Buscar Vehiculo" />
           </children>
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -97,7 +101,7 @@
             </AnchorPane>
           </content>
         </ScrollPane>
-        <AnchorPane prefHeight="550.0" prefWidth="161.0">
+        <AnchorPane prefHeight="550.0" prefWidth="255.0">
           <children>
             <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Detalles del Vehiculo" textAlignment="CENTER" textFill="$x2" wrapText="false" />
           </children>

@@ -237,7 +237,7 @@ public class ListarClientes extends Controlador {
 			}
 
 		} catch (OperationNotSupportedException | IllegalArgumentException | NullPointerException e) {
-			Dialogos.mostrarDialogoAdvertencia("Borrar Cliente ", "Cliente borrado correctamente", getEscenario());
+			Dialogos.mostrarDialogoAdvertencia("Borrar Cliente ", e.getMessage(), getEscenario());
 		}
 
 	}
